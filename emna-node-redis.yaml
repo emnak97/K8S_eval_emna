@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emna-node-redis
+  labels:
+    app: emna-node-redis
+    
+spec:
+  
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emna-node-redis
+  template:
+    metadata:
+      labels:
+        app: emna-node-redis
+    spec:
+      containers:
+      - name: leader
+        image: cloud.canister.io:5000/arhturescriou/node-redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 80
+        env:
+        - name: PORT
+          value: '6379'
+        - name: REDIS_URL
+          value: redis://10.3.240.217
+      imagePullSecrets:
+        - name: regcred
+    

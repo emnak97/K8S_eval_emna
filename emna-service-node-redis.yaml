@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: emna-service-node-redis
+spec:
+  selector:
+    app: emna-service-node-redis
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer

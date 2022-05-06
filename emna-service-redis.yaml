@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: emna-service-redis
+spec:
+  selector:
+    app: emna-service-redis
+  ports:
+    - port: 6379
+      targetPort: 6379
+  type: LoadBalancer

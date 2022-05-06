@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emna-redis-leader
+  labels:
+    app: emna-redis-leader
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emna-redis-leader
+  template:
+    metadata:
+      labels:
+        app: emna-redis-leader
+    spec:
+      containers:
+      - name: emna-redis-leader
+        image: "docker.io/redis:6.0.5"
+        ports:
+        - containerPort: 6379
