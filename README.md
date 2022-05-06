@@ -1,4 +1,6 @@
 the process:
+
+
 Déploiement:
   1- for emna-redis-leader-deployment.yaml:
     - creationg the folder with the help of "https://kubernetes.io/docs/tutorials/stateless-application/guestbook/"
